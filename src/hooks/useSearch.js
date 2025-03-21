@@ -20,7 +20,11 @@ const useSearch = () => {
       const data = await fetchSearchResults(searchTerm);
       setResults(data || []);
     } catch (err) {
-      setError("Failed to fetch results. Please try again.");
+      if (err.message === "Request timeout") {
+        setError("Request timeout");
+      } else {
+        setError("Something wrong happened but this is not your fault :)");
+      }
       setResults([]);
     } finally {
       setLoading(false);

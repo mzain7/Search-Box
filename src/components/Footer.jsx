@@ -12,7 +12,7 @@ function Footer({ loading, error, resultLength }) {
                     loading ? (
                         <p>Searching ...</p>
                     ) : error ? (
-                        <p className='text-error'>Something wrong happened but this is not your fault :)</p>
+                        <p className='text-error'>{error}</p>
                     ) : resultLength === 0 ? (
                         <p>No results</p>
                     ) : (
