@@ -33,7 +33,7 @@ const SearchBox: React.FC = () => {
   }, [activeTag]);
 
   return (
-    <div className="max-w-2xl w-full mx-auto p-[24px] max-h-[600px]">
+    <div className="max-w-2xl w-full mx-auto p-[24px] max-h-[600px] top-1/6 fixed">
       <div className="bg-white rounded-lg shadow-lg overflow-hidden p-4">
         <SearchBar
           value={query}
