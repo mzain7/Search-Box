@@ -20,7 +20,9 @@ export const fetchSearchResults = async (
 
   try {
     const response = await fetch(
-      `${API_BASE_URL}?no-throttling=${noThrottling}&search=${encodeURIComponent(query)}`,
+      `${API_BASE_URL}?no-throttling=${noThrottling}&search=${encodeURIComponent(
+        query
+      )}`,
       { signal }
     );
 
@@ -36,7 +38,6 @@ export const fetchSearchResults = async (
     if (error.name === "AbortError") {
       throw new Error("Request timeout");
     }
-    console.error("Error fetching search results:", error);
     throw error;
   }
 };

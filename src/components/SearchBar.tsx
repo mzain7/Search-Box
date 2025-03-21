@@ -8,8 +8,6 @@ interface SearchBarProps {
 
 const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
   ({ value, onChange, error }, ref: ForwardedRef<HTMLInputElement>) => {
-    console.log("SearchBar");
-    console.log("error", error);
 
     return (
       <div className="relative mb-4">

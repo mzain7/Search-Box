@@ -1,8 +1,8 @@
 import React from "react";
 import ResultItem from "./ResultItem";
-import LoadingIcon from "../assets/Loader.svg";
-import NoResultIcon from "../assets/Location Search.svg";
-import ErrorIcon from "../assets/Counting Stars.svg";
+import LoadingIcon from "../assets/images/Loader.svg";
+import NoResultIcon from "../assets/images/Location Search.svg";
+import ErrorIcon from "../assets/images/Counting Stars.svg";
 import { SearchResult } from "../utils/api";
 
 interface ResultListProps {

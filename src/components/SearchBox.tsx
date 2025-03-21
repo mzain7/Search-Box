@@ -17,7 +17,6 @@ const SearchBox: React.FC = () => {
 
   // Custom Hook for fetching search results
   const { results, loading, error, search } = useSearch();
-  console.log("Results:", results);
 
   // Fetch results when debounced query changes
   useEffect(() => {
