@@ -42,9 +42,9 @@ const SearchBox: React.FC = () => {
           error={error}
         />
         <TagList tags={tags} activeTag={activeTag} onTagClick={setActiveTag} />
-
-        <ResultList results={results} isLoading={loading} error={error} />
-
+        <div className="transition-all duration-300 ease-in-out overflow-auto h-auto">
+          <ResultList results={results} isLoading={loading} error={error} />
+        </div>
         <Footer loading={loading} error={error} resultLength={results.length} />
       </div>
     </div>
