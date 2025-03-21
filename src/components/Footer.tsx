@@ -8,8 +8,8 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ loading, error, resultLength }) => {
   return (
-    <div className="bg-white rounded-br-[20px] rounded-bl-[20px] pt-4 pr-6 pb-4 pl-6 h-[51px] relative">
-      <div className="text-paragraph text-left text-sm leading-5 font-medium absolute left-6 top-[15px] flex items-center justify-start">
+    <div className="bg-white rounded-br-[20px] rounded-bl-[20px] pt-4 pr-6 pb-1 relative">
+      <div className="text-paragraph text-left text-sm leading-5 font-medium">
         {loading ? (
           <p>Searching ...</p>
         ) : error ? (

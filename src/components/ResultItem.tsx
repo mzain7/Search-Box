@@ -8,7 +8,7 @@ interface ResultItemProps {
 const ResultItem: React.FC<ResultItemProps> = ({ technology }) => {
   return (
     <a href={technology.url} target="_blank" rel="noopener noreferrer">
-      <div className="flex items-start gap-4 p-4 hover:bg-gray transition-colors cursor-pointer group">
+      <div className="flex items-start gap-4 p-4 hover:bg-gray transition-colors cursor-pointer group rounded-lg">
         <div className="flex-shrink-0 w-12 h-12 bg-white rounded-md overflow-hidden">
           {technology.image ? (
             <img

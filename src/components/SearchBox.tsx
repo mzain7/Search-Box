@@ -10,10 +10,10 @@ import useSearch from "../hooks/useSearch";
 const tags: string[] = ["Languages", "Build", "Design", "Cloud"];
 
 const SearchBox: React.FC = () => {
-  const [query, setQuery] = useState < string > ("");
+  const [query, setQuery] = useState<string>("");
   const [debouncedQuery] = useDebounce(query, 300);
-  const [activeTag, setActiveTag] = useState < string > ("");
-  const searchInputRef = useRef < HTMLInputElement > (null);
+  const [activeTag, setActiveTag] = useState<string>("");
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Custom Hook for fetching search results
   const { results, loading, error, search } = useSearch();
@@ -34,17 +34,15 @@ const SearchBox: React.FC = () => {
   }, [activeTag]);
 
   return (
-    <div className="max-w-2xl w-full mx-auto p-8">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="p-4">
-          <SearchBar
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            ref={searchInputRef}
-            error={error}
-          />
-          <TagList tags={tags} activeTag={activeTag} onTagClick={setActiveTag} />
-        </div>
+    <div className="max-w-2xl w-full mx-auto p-[24px] max-h-[600px] ">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden p-4">
+        <SearchBar
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          ref={searchInputRef}
+          error={error}
+        />
+        <TagList tags={tags} activeTag={activeTag} onTagClick={setActiveTag} />
 
         <ResultList results={results} isLoading={loading} error={error} />
 
