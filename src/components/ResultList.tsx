@@ -3,6 +3,7 @@ import ResultItem from "./ResultItem";
 import LoadingIcon from "../assets/images/Loader.svg";
 import NoResultIcon from "../assets/images/Location Search.svg";
 import ErrorIcon from "../assets/images/Counting Stars.svg";
+
 import { SearchResult } from "../utils/api";
 
 interface ResultListProps {
