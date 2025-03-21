@@ -1,10 +1,18 @@
 const API_BASE_URL = "https://frontend-test-api.digitalcreative.cn/";
 
+export interface SearchResult {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  category: string;
+}
+
 export const fetchSearchResults = async (
-  query,
-  noThrottling = false,
-  timeout = 3000
-) => {
+  query: string,
+  noThrottling: boolean = false,
+  timeout: number = 3000
+): Promise<SearchResult[]> => {
   const controller = new AbortController();
   const signal = controller.signal;
 
@@ -12,7 +20,7 @@ export const fetchSearchResults = async (
 
   try {
     const response = await fetch(
-      `${API_BASE_URL}?no-throttling=${noThrottling}&search=${query}`,
+      `${API_BASE_URL}?no-throttling=${noThrottling}&search=${encodeURIComponent(query)}`,
       { signal }
     );
 
@@ -22,9 +30,9 @@ export const fetchSearchResults = async (
       throw new Error("Network response was not ok");
     }
 
-    const data = await response.json();
+    const data: SearchResult[] = await response.json();
     return data;
-  } catch (error) {
+  } catch (error: any) {
     if (error.name === "AbortError") {
       throw new Error("Request timeout");
     }

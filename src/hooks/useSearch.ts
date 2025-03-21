@@ -1,13 +1,13 @@
 import { useState, useCallback } from "react";
-import { fetchSearchResults } from "../utils/api";
+import { fetchSearchResults, SearchResult } from "../utils/api";
 
 const useSearch = () => {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [query, setQuery] = useState<string>("");
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const search = useCallback(async (searchTerm) => {
+  const search = useCallback(async (searchTerm: string) => {
     if (!searchTerm.trim()) {
       setResults([]);
       return;
@@ -19,9 +19,9 @@ const useSearch = () => {
     try {
       const data = await fetchSearchResults(searchTerm);
       setResults(data || []);
-    } catch (err) {
+    } catch (err: any) {
       if (err.message === "Request timeout") {
-        setError("Request timeout");
+        setError("The request time out.");
       } else {
         setError("Something wrong happened but this is not your fault :)");
       }
