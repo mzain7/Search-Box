@@ -11,7 +11,7 @@ export interface SearchResult {
 export const fetchSearchResults = async (
   query: string,
   noThrottling: boolean = false,
-  timeout: number = 3000
+  timeout: number = 5000
 ): Promise<SearchResult[]> => {
   const controller = new AbortController();
   const signal = controller.signal;
